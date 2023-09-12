@@ -1,10 +1,11 @@
 from datetime import datetime
-from car import Car
-from engine import CapuletEngine, SternmanEngine, WilloughbyEngine
-from battery import NubbinBattery, SpindlerBattery
+from src.car import Car
+from src.engine import CapuletEngine, SternmanEngine, WilloughbyEngine
+from src.battery import NubbinBattery, SpindlerBattery
 
 class CarFactory():
 
+    @staticmethod
     def create_calliope(current_date: datetime, last_service_date: datetime, current_mileage: int, last_service_mileage: int) -> Car:
         """Creates a Calliope model based off information from the existing car.
 
@@ -24,6 +25,7 @@ class CarFactory():
 
         return calliope
     
+    @staticmethod
     def create_glissade(current_date: datetime, last_service_date: datetime, current_mileage: int, last_service_mileage: int) -> Car:
         """Creates a Glissade model based off information from the existing car.
 
@@ -43,6 +45,7 @@ class CarFactory():
 
         return glissade
     
+    @staticmethod
     def create_palindrome(current_date: datetime, last_service_date: datetime, warning_light_on: bool) -> Car:
         """Creates a Palindrome model based off information from the existing car.
 
@@ -56,11 +59,12 @@ class CarFactory():
         """
         palindrome = Car(
             SternmanEngine(warning_light_on),
-            SpindlerBattery(current_date, last_service_date)
+            NubbinBattery(current_date, last_service_date)
         )
 
         return palindrome
     
+    @staticmethod
     def create_rorschach(current_date: datetime, last_service_date: datetime, current_mileage: int, last_service_mileage: int) -> Car:
         """Creates a Rorschach model based off information from the existing car.
 
@@ -80,6 +84,7 @@ class CarFactory():
 
         return rorschach
     
+    @staticmethod
     def create_thovex(current_date: datetime, last_service_date: datetime, current_mileage: int, last_service_mileage: int) -> Car:
         """Creates a Thovex model based off information from the existing car.
 
